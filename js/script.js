@@ -2,18 +2,10 @@ const board=document.querySelector(".sketchBoard");
 let grid=document.createElement('div');
 grid.setAttribute('class','grid');
 let start=document.querySelector("#start");
+let black=document.querySelector("#black");
+let color=document.querySelector("#color");
 let numberofGrid=16
-start.onclick=()=>{
-    while(board.firstChild){
-        board.removeChild(board.firstChild);
-    }
-    numberofGrid=prompt("Enter the number of Grid");
-    if(numberofGrid==null){
-        return;
-    }
-    drawBoard(numberofGrid);
-}
-
+let selected=null;
 function drawBoard(number){
     board.style.height='auto';  
     let width=960/number;
@@ -28,12 +20,22 @@ function drawBoard(number){
     }
     let att=document.querySelectorAll('.grid');
 
-    for (let i=0;i<att.length;i++){
-        att[i].addEventListener('mouseover',function(e){
-            var randomColor = Math.floor(Math.random()*16777215).toString(16);
-            e.target.style.backgroundColor='#'+randomColor.toString();
-        });
+    black_position:if(selected==='black'){
+        for (let i=0;i<att.length;i++){
+            att[i].addEventListener('mouseover',function(e){
+                e.target.style.backgroundColor='#000000'.toString();
+            });
+        }
     }
+    else if (selected==='color'){
+       for (let i=0;i<att.length;i++){
+            att[i].addEventListener('mouseover',function(e){
+                e.target.style.backgroundColor='#'+generateReandomColor().toString();
+            });
+        }
+    }
+
+    
 
     let clear=document.querySelector('#clear');
     clear.onclick=()=>{
@@ -42,4 +44,45 @@ function drawBoard(number){
         }
     }
 }
+start.onclick=()=>{
+    selected='black';
+    while(board.firstChild){
+        board.removeChild(board.firstChild);
+    }
+    numberofGrid=prompt("Enter the number of Grid");
+    if(numberofGrid==null){
+        return;
+    }
+    drawBoard(numberofGrid);
+}
+black.onclick=()=>{
+    selected='black';
+    while(board.firstChild){
+        board.removeChild(board.firstChild);
+    }
+    numberofGrid=prompt("Enter the number of Grid");
+    if(numberofGrid==null){
+        return;
+    }
+    drawBoard(numberofGrid);
+}
+
+color.onclick=()=>{
+   
+    selected='color';
+    while(board.firstChild){
+        board.removeChild(board.firstChild);
+    }
+    numberofGrid=prompt("Enter the number of Grid");
+    if(numberofGrid==null){
+        return;
+    }
+    drawBoard(numberofGrid);
+}
+
+function generateReandomColor(){
+    return Math.floor(Math.random()*16777215).toString(16);
+}
+
+
 
