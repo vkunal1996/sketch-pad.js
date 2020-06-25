@@ -1,0 +1,36 @@
+.mainContainer{
+    background-color: black;
+    color:white;
+    height:auto;
+    width:962px;
+    margin-left: 160px;
+    margin-top:40px;
+    padding: 1%;
+}
+.sketchBoard{
+    background-color:white;
+    color:black;
+    height:960px;
+    width:960px;
+    display: inline-block;
+    /*margin-left: 420px;*/
+}
+.grid{
+    display: inline-block;
+}
+.Heading{
+    align-items: center;
+    text-align: center;
+    padding-top: 0.5%;
+}
+button{
+    height: 50px;
+    width:100px;
+    margin-left:40px;
+    color: black;
+    background-color:lightgray;
+    outline: 1px solid black;
+    text-shadow: black;
+    font-size: xx-large;
+    font-family: fantasy;
+}
