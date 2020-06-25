@@ -34,3 +34,8 @@ button{
     font-size: xx-large;
     font-family: fantasy;
 }
+button:hover{
+    background-color: darkslategray;
+    color:white;
+    outline: 1px solid white;
+}
